@@ -1,0 +1,146 @@
+[
+    {
+        "id": "1",
+        "user": {
+            "name": "Nguyễn Văn A",
+            "avatar": "https://i.pravatar.cc/40?img=1"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "caption": "Một ngày tuyệt vời cùng bạn bè ✨",
+        "likes": 120,
+        "comments": 45,
+        "shares": 12
+    },
+    {
+        "id": "2",
+        "user": {
+            "name": "Trần Thị B",
+            "avatar": "https://i.pravatar.cc/40?img=2"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
+        "caption": "Cười xỉu luôn 😂",
+        "likes": 200,
+        "comments": 67,
+        "shares": 30
+    },
+    {
+        "id": "3",
+        "user": {
+            "name": "Lê Văn C",
+            "avatar": "https://i.pravatar.cc/40?img=3"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=L_jWHffIx5E",
+        "caption": "Thử thách mới, bạn có dám tham gia không? 💪",
+        "likes": 95,
+        "comments": 20,
+        "shares": 5
+    },
+    {
+        "id": "4",
+        "user": {
+            "name": "Phạm Thị D",
+            "avatar": "https://i.pravatar.cc/40?img=4"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=K4DyBUG242c",
+        "caption": "Hôm nay trời đẹp quá 🌞",
+        "likes": 150,
+        "comments": 38,
+        "shares": 18
+    },
+    {
+        "id": "5",
+        "user": {
+            "name": "Hoàng Văn E",
+            "avatar": "https://i.pravatar.cc/40?img=5"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
+        "caption": "Đi chơi cuối tuần với gia đình 👨‍👩‍👧‍👦",
+        "likes": 210,
+        "comments": 80,
+        "shares": 25
+    },
+    {
+        "id": "6",
+        "user": {
+            "name": "Ngô Thị F",
+            "avatar": "https://i.pravatar.cc/40?img=6"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+        "caption": "Bí quyết nấu ăn ngon đây nè 🍲",
+        "likes": 340,
+        "comments": 102,
+        "shares": 40
+    },
+    {
+        "id": "7",
+        "user": {
+            "name": "Đặng Văn G",
+            "avatar": "https://i.pravatar.cc/40?img=7"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+        "caption": "Một chuyến đi đáng nhớ 🚗",
+        "likes": 175,
+        "comments": 50,
+        "shares": 22
+    },
+    {
+        "id": "8",
+        "user": {
+            "name": "Vũ Thị H",
+            "avatar": "https://i.pravatar.cc/40?img=8"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=ktvTqknDobU",
+        "caption": "Cover bài hát mình thích 🎶",
+        "likes": 289,
+        "comments": 97,
+        "shares": 33
+    },
+    {
+        "id": "9",
+        "user": {
+            "name": "Bùi Văn I",
+            "avatar": "https://i.pravatar.cc/40?img=9"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=60ItHLz5WEA",
+        "caption": "Khoảnh khắc khó quên với đồng đội ⚽",
+        "likes": 410,
+        "comments": 130,
+        "shares": 55
+    },
+    {
+        "id": "10",
+        "user": {
+            "name": "Đỗ Thị J",
+            "avatar": "https://i.pravatar.cc/40?img=10"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=RgKAFK5djSk",
+        "caption": "Tips học nhanh nhớ lâu 📚",
+        "likes": 95,
+        "comments": 27,
+        "shares": 10
+    },
+    {
+        "id": "11",
+        "user": {
+            "name": "Mai Văn K",
+            "avatar": "https://i.pravatar.cc/40?img=11"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=hTWKbfoikeg",
+        "caption": "Thưởng thức cà phê sáng ☕",
+        "likes": 145,
+        "comments": 36,
+        "shares": 12
+    },
+    {
+        "id": "12",
+        "user": {
+            "name": "Hà Thị L",
+            "avatar": "https://i.pravatar.cc/40?img=12"
+        },
+        "videoUrl": "https://www.youtube.com/watch?v=OPf0YbXqDm0",
+        "caption": "Chill cuối tuần 🏞️",
+        "likes": 268,
+        "comments": 90,
+        "shares": 28
+    }
+]
