@@ -32,3 +32,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#turbo
+/.turbo/
+
+node_modules
