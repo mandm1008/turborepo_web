@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { FaHeart, FaRegCommentDots, FaShare } from "react-icons/fa";
+import { FaHeart, FaRegCommentDots, FaShare, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 export interface VideoPostProps {
-    id: number,
+    id: number;
     user: {
         name: string;
         avatar: string;
@@ -14,6 +14,8 @@ export interface VideoPostProps {
     likes: number;
     comments: number;
     shares: number;
+    isMuted?: boolean;
+    setIsMuted?: (value: boolean) => void;
 }
 
 export default function VideoPost({
@@ -23,11 +25,44 @@ export default function VideoPost({
     likes,
     comments,
     shares,
+    isMuted,
+    setIsMuted,
 }: VideoPostProps) {
     const [isLiked, setIsLiked] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // Nếu video hiển thị ít nhất 50% thì bật nhạc
+                    if (entry.isIntersecting) {
+                        setIsPlaying(true);
+                    } else {
+                        setIsPlaying(false);
+                    }
+                });
+            },
+            { threshold: 0.5 } // 50% video nằm trong viewport
+        );
+
+        if (videoRef.current) {
+            observer.observe(videoRef.current);
+        }
+
+        return () => {
+            if (videoRef.current) {
+                observer.unobserve(videoRef.current);
+            }
+        };
+    }, []);
 
     return (
-        <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg overflow-hidden mb-6">
+        <div
+            ref={videoRef}
+            className="bg-white dark:bg-gray-900 shadow-md rounded-lg overflow-hidden mb-6"
+        >
             {/* Header */}
             <div className="flex items-center gap-3 p-4">
                 <img
@@ -38,14 +73,23 @@ export default function VideoPost({
                 <p className="font-semibold">{user.name}</p>
             </div>
 
-            {/* Video (ReactPlayer hỗ trợ cả YouTube & file mp4) */}
-            <div className="w-full aspect-video bg-black">
+            {/* Video */}
+            <div className="w-full aspect-video bg-black relative">
                 <ReactPlayer
                     src={videoUrl}
                     width="100%"
                     height="100%"
-                    controls
+                    playing={isPlaying}
+                    muted={isMuted}
+                    controls={false}
                 />
+
+                <button
+                    onClick={() => setIsMuted && setIsMuted(!isMuted)}
+                    className="absolute bottom-4 right-4 bg-black/50 text-white p-2 rounded-full"
+                >
+                    {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+                </button>
             </div>
 
             {/* Caption */}
