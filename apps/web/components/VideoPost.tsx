@@ -36,7 +36,6 @@ export default function VideoPost({
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    // Nếu video hiển thị ít nhất 50% thì bật nhạc
                     if (entry.isIntersecting) {
                         setIsPlaying(true);
                     } else {
@@ -44,7 +43,7 @@ export default function VideoPost({
                     }
                 });
             },
-            { threshold: 0.5 } // 50% video nằm trong viewport
+            { threshold: 0.8 } // 80% video nằm trong viewport
         );
 
         if (videoRef.current) {
