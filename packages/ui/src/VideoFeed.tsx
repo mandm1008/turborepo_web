@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PostInput from "./PostInput";
+import { PostInput } from "./inputs";
 import VideoPost, { VideoPostProps } from "./VideoPost";
 
 export default function VideoFeed() {

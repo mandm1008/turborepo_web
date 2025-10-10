@@ -1,4 +1,4 @@
-import { VideoFeed } from "../components";
+import { VideoFeed } from "@repo/ui/videos";
 
 export default function Page() {
   return (

@@ -32,5 +32,10 @@
     "eslint": "^9.33.0",
     "tailwindcss": "^4.1.5",
     "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.16",
+    "react-icons": "^5.5.0",
+    "react-player": "^3.3.3"
   }
 }

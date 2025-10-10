@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaFacebook, FaHome, FaBell, FaFacebookMessenger, FaPlus, FaUsers, FaStore, FaTv, FaBars, FaSearch } from "react-icons/fa";
 import { useFloating, offset, flip, shift, useDismiss, useRole, useInteractions } from "@floating-ui/react";
 

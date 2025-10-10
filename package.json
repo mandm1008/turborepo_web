@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "dotenv -- sh -c 'turbo run dev --filter=$TURBO_SCOPE'",
+    "dev": "turbo run dev",
+    "dev:filter": "dotenv -- sh -c 'turbo run dev --filter=$TURBO_SCOPE'",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -15,7 +16,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.5.8"
   },
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@10.18.1",
   "engines": {
     "node": ">=18"
   }
