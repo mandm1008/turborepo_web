@@ -6,7 +6,7 @@ export function PostInput() {
     const [text, setText] = useState("");
 
     return (
-        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-4 mb-6">
+        <div className="bg-gray-900 rounded-xl shadow p-4 mb-6">
             <div className="flex items-center gap-3">
                 <img
                     src="https://i.pravatar.cc/50"

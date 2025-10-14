@@ -60,7 +60,7 @@ export default function VideoPost({
     return (
         <div
             ref={videoRef}
-            className="bg-white dark:bg-gray-900 shadow-md rounded-lg overflow-hidden mb-6"
+            className="bg-gray-900 shadow-md rounded-lg overflow-hidden mb-6"
         >
             {/* Header */}
             <div className="flex items-center gap-3 p-4">

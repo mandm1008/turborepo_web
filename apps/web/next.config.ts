@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  allowedDevOrigins: [
+    '*.fakebook.dominhman.id.vn',
+    'fakebook.dominhman.id.vn',
+  ],
 };
 
 export default nextConfig;
