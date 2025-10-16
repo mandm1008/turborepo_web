@@ -8,14 +8,13 @@ type FooterProps = {
 
 export default function Footer({ type = "full" }: FooterProps) {
     return (
-        <footer className="bg-white border-t border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <footer className="bg-white text-black border-t border-gray-200 dark:bg-gray-900 dark:border-gray-700">
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 {type === "full" && (
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                        {/* Cột 1 - Logo + intro */}
                         <div>
                             <h2 className="text-xl font-bold text-blue-600 flex items-center gap-2">
-                                <FaFacebook /> MyApp
+                                <FaFacebook /> Fakebook
                             </h2>
                             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                                 Xây dựng kết nối, chia sẻ khoảnh khắc và khám phá thế giới quanh
@@ -23,7 +22,6 @@ export default function Footer({ type = "full" }: FooterProps) {
                             </p>
                         </div>
 
-                        {/* Cột 2 - Liên kết */}
                         <div>
                             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                                 Liên kết nhanh
@@ -52,7 +50,6 @@ export default function Footer({ type = "full" }: FooterProps) {
                             </ul>
                         </div>
 
-                        {/* Cột 3 - Mạng xã hội */}
                         <div>
                             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                                 Kết nối với chúng tôi
@@ -75,7 +72,6 @@ export default function Footer({ type = "full" }: FooterProps) {
                     </div>
                 )}
 
-                {/* Mini footer */}
                 <div className="mt-6 border-t pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
                     <p>© {new Date().getFullYear()} MyApp. All rights reserved.</p>
                     <p className="mt-2 md:mt-0">Made with ❤️ by Team</p>

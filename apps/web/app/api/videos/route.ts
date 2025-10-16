@@ -1,34 +1,52 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { connectDB } from "@/db";
+import { VideoModel } from "@/db/models";
 
 export async function GET(req: Request) {
     try {
+        await connectDB();
+
         const { searchParams } = new URL(req.url);
         const page = parseInt(searchParams.get("page") || "1", 10);
         const limit = parseInt(searchParams.get("limit") || "3", 10);
 
-        const filePath = path.join(process.cwd(), "data", "videos.json");
-        const raw = fs.readFileSync(filePath, "utf-8");
-        const videos = JSON.parse(raw);
+        const skip = (page - 1) * limit;
 
-        const startIndex = (page - 1) * limit;
-        const endIndex = startIndex + limit;
-        const items = videos.slice(startIndex, endIndex);
+        // ⚡ Lấy video có user liên kết
+        const videos = await VideoModel.find({})
+            .populate("userId", "name avatar") // chỉ lấy name + avatar của user
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .lean();
 
-        const hasMore = endIndex < videos.length;
+        const total = await VideoModel.countDocuments();
+        const hasMore = skip + videos.length < total;
+
+        const items = videos.map((v) => ({
+            id: v._id.toString(),
+            user: {
+                name: (v as any).userId?.name,
+                avatar: (v as any).userId?.avatar,
+            },
+            videoUrl: v.videoUrl,
+            caption: v.caption,
+            likes: v.likesCount || 0,
+            comments: v.commentsCount || 0,
+            shares: v.sharesCount || 0,
+        }));
 
         return NextResponse.json({
             page,
             limit,
-            total: videos.length,
+            total,
             hasMore,
             items,
         });
     } catch (error: any) {
-        console.error("❌ Error reading videos.json:", error);
+        console.error("❌ Error fetching videos:", error);
         return NextResponse.json(
-            { error: "Failed to load videos data" },
+            { error: "Failed to load videos from DB" },
             { status: 500 }
         );
     }
