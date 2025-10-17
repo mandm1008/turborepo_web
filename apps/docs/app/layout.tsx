@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import {Header, Footer} from '@repo/ui/layouts';
+import SessionWrapper from "../components/SessionWrapper";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={geist.className}>
-        <Header type="full" />
+        <SessionWrapper>
+          <Header type="full" />
         {children}
         <Footer type="full" />
+        </SessionWrapper>
       </body>
     </html>
   );
