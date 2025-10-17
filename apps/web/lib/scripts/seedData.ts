@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import { connectDB } from "@/db";
-import { UserModel, VideoModel } from "@/db/models";
+import { connectDB } from "@/lib/db";
+import { UserModel, VideoModel } from "@/lib/db/models";
 
 interface RawVideo {
   id: string;

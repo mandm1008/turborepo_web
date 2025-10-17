@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "@/db";
-import { VideoModel } from "@/db/models";
+import { connectDB } from "@/lib/db";
+import { VideoModel } from "@/lib/db/models";
 import { getServerSession } from "next-auth";
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import fs from "fs";

@@ -1,5 +1,4 @@
-import LeftSidebar from "@repo/ui/LeftSidebar";
-import RightSidebar from "@repo/ui/RightSidebar";
+import { LeftSidebar, RightSidebar } from "@repo/ui/layouts";
 import { FeedArea } from "@repo/ui/videos";
 
 export default function Page() {

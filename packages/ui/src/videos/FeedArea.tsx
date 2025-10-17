@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-import { PostInput } from "./inputs";
+import { PostInput } from "../inputs";
 import VideoPost, { VideoPostProps } from "./VideoPost";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
