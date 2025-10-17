@@ -1,4 +1,4 @@
-import { Schema, model, Document, models, Model } from "mongoose";
+import { Schema, Document } from "mongoose";
 
 export interface IVideo extends Document {
     userId: Schema.Types.ObjectId;

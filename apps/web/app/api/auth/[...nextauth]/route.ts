@@ -1,42 +1,67 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { connectDB } from "@/db";
+import { UserModel } from "@/db/models";
+import bcrypt from "bcrypt";
 
-const handler = NextAuth({
+export const authOptions: AuthOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                email: { label: "Email", type: "text" },
+                email: { label: "Email", type: "text", placeholder: "you@example.com" },
                 password: { label: "Password", type: "password" },
             },
+
             async authorize(credentials) {
-                // Danh sách user tĩnh (static)
-                const users = [
-                    { id: "1", name: "Admin", email: "admin@example.com", password: "123456" },
-                    { id: "2", name: "Nguyễn Văn A", email: "user@example.com", password: "abc123" },
-                ];
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error("Vui lòng nhập đầy đủ Email và Mật khẩu");
+                }
 
-                const user = users.find(
-                    (u) =>
-                        u.email === credentials?.email &&
-                        u.password === credentials?.password
-                );
+                await connectDB();
 
-                if (user) return user;
-                return null; // nếu sai thông tin
+                const user = await UserModel.findOne({ email: credentials.email });
+                if (!user) {
+                    throw new Error("Không tìm thấy tài khoản");
+                }
+
+                const isValid = await bcrypt.compare(credentials.password, user.passwordHash);
+                if (!isValid) {
+                    throw new Error("Sai mật khẩu");
+                }
+
+                return {
+                    id: (user._id as any).toString(),
+                    name: user.name,
+                    email: user.email,
+                    avatar: user.avatar,
+                };
             },
         }),
     ],
 
     pages: {
-        signIn: "/login", // dùng trang /login của bạn
+        signIn: "/login",
     },
 
     session: {
         strategy: "jwt",
     },
 
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) token.user = user;
+            return token;
+        },
+        async session({ session, token }) {
+            session.user = token.user;
+            return session;
+        },
+    },
+
     secret: process.env.NEXTAUTH_SECRET || "my-secret-key",
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

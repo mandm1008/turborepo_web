@@ -1,4 +1,4 @@
-import { Schema, model, Document, models } from "mongoose";
+import { Schema, Document } from "mongoose";
 
 export interface IComment extends Document {
     videoId: Schema.Types.ObjectId;

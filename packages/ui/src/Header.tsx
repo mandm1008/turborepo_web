@@ -25,7 +25,7 @@ import {
     useRole,
     useInteractions,
 } from "@floating-ui/react";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export type HeaderProps = {
     type?: "full" | "mini";
@@ -35,6 +35,8 @@ export default function Header({ type = "full" }: HeaderProps) {
     const [openMenu, setOpenMenu] = useState<"msg" | "notif" | "account" | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
+    const { data: session } = useSession();
+    const user = session?.user;
 
     const floating = useFloating({
         placement: "bottom-end",
@@ -78,7 +80,7 @@ export default function Header({ type = "full" }: HeaderProps) {
                         )}
                     </a>
                     {type === "full" && (
-                        <div className="hidden sm:flex items-center bg-gray-100 rounded-full px-3 py-1 w-[200px] focus-within:ring-2 focus-within:ring-blue-400">
+                        <div className="flex items-center bg-gray-100 rounded-full px-3 py-1 w-[200px] focus-within:ring-2 focus-within:ring-blue-400">
                             <FaSearch className="text-gray-600" />
                             <input
                                 value={search}
@@ -211,12 +213,15 @@ export default function Header({ type = "full" }: HeaderProps) {
                                 className="flex items-center gap-2 rounded-full hover:bg-gray-100 px-2 py-1"
                             >
                                 <img
-                                    src="/turborepo.svg"
+                                    src={
+                                        user?.avatar ||
+                                        "https://i.pravatar.cc/40?u=default"
+                                    }
                                     alt="User avatar"
                                     className="w-8 h-8 rounded-full object-cover"
                                 />
                                 <span className="hidden md:inline-block text-sm font-medium">
-                                    Người dùng
+                                    {user?.name || "Người dùng"}
                                 </span>
                             </button>
                             {openMenu === "account" && (

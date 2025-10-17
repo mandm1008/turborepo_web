@@ -1,4 +1,4 @@
-import { Schema, model, Document, models } from "mongoose";
+import { Schema, Document } from "mongoose";
 
 export interface ILike extends Document {
     userId: Schema.Types.ObjectId;
