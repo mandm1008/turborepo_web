@@ -7,14 +7,14 @@ import VideoPost, { VideoPostProps } from "./VideoPost";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export default function FeedArea() {
+export default function FeedArea({ apiRoute = "/api/videos", hasPost = true }: { apiRoute?: string; hasPost?: boolean }) {
     const [page, setPage] = useState(1);
     const [videos, setVideos] = useState<VideoPostProps[]>([]);
     const [isMuted, setIsMuted] = useState(true);
     const [hasMore, setHasMore] = useState(true);
 
     const { data, error, isValidating } = useSWR(
-        hasMore ? `/api/videos?page=${page}&limit=3` : null,
+        hasMore ? `${apiRoute}?page=${page}&limit=3` : null,
         fetcher,
         { revalidateOnFocus: false }
     );
@@ -55,7 +55,7 @@ export default function FeedArea() {
 
     return (
         <main className="max-w-xl mx-auto mt-6">
-            <PostInput />
+            {hasPost && <PostInput />}
 
             {videos.map((post) => (
                 <VideoPost

@@ -16,9 +16,8 @@ export async function GET(req: Request) {
 
         const skip = (page - 1) * limit;
 
-        // ⚡ Lấy video có user liên kết
         const videos = await VideoModel.find({})
-            .populate("userId", "name avatar") // chỉ lấy name + avatar của user
+            .populate("userId", "_id name avatar")
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
@@ -30,6 +29,7 @@ export async function GET(req: Request) {
         const items = videos.map((v) => ({
             id: v._id.toString(),
             user: {
+                id: (v as any).userId?._id,
                 name: (v as any).userId?.name,
                 avatar: (v as any).userId?.avatar,
             },

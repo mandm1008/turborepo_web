@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <>
       <Header type="full" />
-      <div className="pt-16">
+      <div className="pt-16 min-h-[calc(100vh-8rem)]">
         {children}
       </div>
       <Footer />

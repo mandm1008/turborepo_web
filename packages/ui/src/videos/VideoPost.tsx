@@ -2,10 +2,12 @@
 import { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { FaHeart, FaRegCommentDots, FaShare, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { Avatar } from "../profile";
 
 export interface VideoPostProps {
     id: number;
     user: {
+        id: string;
         name: string;
         avatar: string;
     };
@@ -64,11 +66,7 @@ export default function VideoPost({
         >
             {/* Header */}
             <div className="flex items-center gap-3 p-4">
-                <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-10 h-10 rounded-full"
-                />
+                <Avatar name={user.name} avatar={user.avatar} userId={user.id} />
                 <p className="font-semibold">{user.name}</p>
             </div>
 

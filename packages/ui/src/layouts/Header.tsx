@@ -26,6 +26,7 @@ import {
     useInteractions,
 } from "@floating-ui/react";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export type HeaderProps = {
     type?: "full" | "mini";
@@ -231,15 +232,15 @@ export default function Header({ type = "full" }: HeaderProps) {
                                     {...getFloatingProps({})}
                                     className="w-68 bg-white border rounded-md shadow-lg p-2 z-50"
                                 >
-                                    <a
-                                        href="#"
+                                    <Link
+                                        href={`/profile/${user?.id}`}
                                         className="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-100"
                                     >
                                         <FaUser />
                                         <span>Trang cá nhân</span>
-                                    </a>
+                                    </Link>
                                     <a
-                                        href="#"
+                                        href={`/profile/${user?.id}/settings`}
                                         className="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-100"
                                     >
                                         <FaCog />

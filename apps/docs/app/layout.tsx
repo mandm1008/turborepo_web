@@ -2,7 +2,7 @@ import "@repo/ui/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import {Header, Footer} from '@repo/ui/layouts';
+import { Header, Footer } from '@repo/ui/layouts';
 import SessionWrapper from "../components/SessionWrapper";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -22,8 +22,8 @@ export default function RootLayout({
       <body className={geist.className}>
         <SessionWrapper>
           <Header type="full" />
-        {children}
-        <Footer type="full" />
+          {children}
+          <Footer type="full" />
         </SessionWrapper>
       </body>
     </html>
