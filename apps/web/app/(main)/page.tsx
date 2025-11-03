@@ -4,7 +4,6 @@ import { FeedArea } from "@repo/ui/videos";
 export default function Page() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
-
       <div className="flex flex-1 justify-center gap-4 px-4 py-6 max-w-7xl mx-auto w-full">
         <aside className="hidden md:block w-1/4">
           <LeftSidebar />

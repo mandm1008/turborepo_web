@@ -1,1 +1,1 @@
-export * from './layouts/index';
+export * from "./layouts/index";

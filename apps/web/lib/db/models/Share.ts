@@ -11,9 +11,9 @@ const shareSchema = new Schema<IShare>(
   {
     userId: { type: Schema.Types.ObjectId, ref: "users", required: true },
     videoId: { type: Schema.Types.ObjectId, ref: "videos", required: true },
-    sharedTo: [{ type: Schema.Types.ObjectId, ref: "users" }]
+    sharedTo: [{ type: Schema.Types.ObjectId, ref: "users" }],
   },
-  { timestamps: { createdAt: true, updatedAt: false } }
+  { timestamps: { createdAt: true, updatedAt: false } },
 );
 
 export default shareSchema;

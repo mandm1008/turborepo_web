@@ -1,13 +1,13 @@
-import { Schema, models, Model, model } from 'mongoose';
-import commentSchema from './Comment';
-import followSchema from './Follow';
-import likeSchema from './Like';
-import messageSchema from './Message';
-import notificationSchema from './Notification';
-import shareSchema from './Share';
-import userSchema from './User';
-import videoSchema from './Video';
-import viewSchema from './View';
+import { Schema, models, Model, model } from "mongoose";
+import commentSchema from "./Comment";
+import followSchema from "./Follow";
+import likeSchema from "./Like";
+import messageSchema from "./Message";
+import notificationSchema from "./Notification";
+import shareSchema from "./Share";
+import userSchema from "./User";
+import videoSchema from "./Video";
+import viewSchema from "./View";
 
 function getModel<T>(name: string, schema: Schema<T>) {
   return (models[name] as Model<T>) || model<T>(name, schema);

@@ -63,11 +63,9 @@ export default function Page() {
                 width={614}
               />
             </div>
-            <div className="absolute z-50 flex items-center justify-center w-64 h-64">
-            </div>
+            <div className="absolute z-50 flex items-center justify-center w-64 h-64"></div>
 
-            <div className="flex justify-center items-center z-50">
-            </div>
+            <div className="flex justify-center items-center z-50"></div>
           </div>
           <div className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6">
             <svg
@@ -91,9 +89,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-
-      </div>
+      <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left"></div>
     </main>
   );
 }
